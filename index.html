@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Grades Average Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow: hidden; /* Prevent scrolling on smaller screens */
+        }
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        h1, p, button, h3 {
+            color: #a186c2;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 80%;
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        input[type="number"] {
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #663399;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #5a2d8a;
+        }
+        .mute-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #663399;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .glossary {
+            max-height: 200px;
+            overflow-y: scroll;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+        }
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop>
+        <source src="Minecraft1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container">
+        <h1 style="color:#722496">Subject Grades Average Calculator</h1>
+        <p>Enter the grades for 5 subjects:</p>
+        <input type="number" id="grade1" placeholder="Grade 1"><br><br>
+        <input type="number" id="grade2" placeholder="Grade 2"><br><br>
+        <input type="number" id="grade3" placeholder="Grade 3"><br><br>
+        <input type="number" id="grade4" placeholder="Grade 4"><br><br>
+        <input type="number" id="grade5" placeholder="Grade 5"><br><br>
+        <button onclick="calculateAverage()">Calculate Average</button><br><br>
+        <p id="average"></p>
+    </div>
+
+    <button class="mute-button" onclick="toggleSound()">🔊</button>
+
+    <audio id="myAudio" autoplay loop>
+        <source src="READYTOGO.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        var audio = document.getElementById("myAudio");
+        audio.play();
+
+        function calculateAverage() {
+            var grade1 = parseFloat(document.getElementById('grade1').value);
+            var grade2 = parseFloat(document.getElementById('grade2').value);
+            var grade3 = parseFloat(document.getElementById('grade3').value);
+            var grade4 = parseFloat(document.getElementById('grade4').value);
+            var grade5 = parseFloat(document.getElementById('grade5').value);
+            
+            var average = (grade1 + grade2 + grade3 + grade4 + grade5) / 5;
+            
+            document.getElementById('average').innerText = "Average Grade: " + average.toFixed(2);
+        }
+
+        function toggleSound() {
+            if (audio.paused) {
+                audio.play();
+                document.querySelector('.mute-button').innerText = "🔇";
+            } else {
+                audio.pause();
+                document.querySelector('.mute-button').innerText = "🔊";
+            }
+        }
+    </script>
+
+    <div class="glossary">
+        <h3 style="color:#722496">Glossary:</h3>
+        <p>1. <strong>Average Calculator:</strong> A tool designed to calculate the average value of a set of numerical inputs. In the context of the provided calculator, it computes the average grade of five subjects based on the grades entered by the user.</p>
+        <p>2. <strong>HTML (Hypertext Markup Language):</strong> The standard markup language used to create and design web pages. It structures content on the web and is essential for building websites.</p>
+        <p>3. <strong>Input Field:</strong> A space on a web page where users can enter data or information. In the Average Calculator, input fields are provided for entering the grades of the five subjects.</p>
+        <p>4. <strong>Calculate Button:</strong> A button on the web page that, when clicked, triggers the calculation process. In the calculator, the "Calculate Average" button computes the average grade based on the inputted values.</p>
+        <p>5. <strong>Average Grade:</strong> The result obtained by summing the grades of multiple subjects and dividing by the total number of subjects. The Average Calculator provides the average grade of the entered subject grades.</p>
+        <p>6. <strong>Mute Button:</strong> A button that allows users to silence or unmute the background sound. In the context of the calculator, the mute button enables users to control the background music with a simple click.</p>
+        <p>7. <strong>User Experience (UX):</strong> The overall experience of a person using a product or service, such as a website or application. The Average Calculator aims to provide a positive user experience by offering a straightforward interface for calculating grades.</p>
+        <p>8. <strong>Web Browser:</strong> A software application used to access information on the World Wide Web. Users interact with web pages, like the Average Calculator, through a web browser to input data and view results.</p>
+        <p>9. <strong>Text Editor:</strong> A software program used for creating and editing plain text files. In the context of the calculator, a text editor is used to save the HTML code and create the web page for the calculator.</p>
+        <p>10. <strong>Responsive Design:</strong> A design approach that ensures web pages adapt and display appropriately on various devices and screen sizes. The Average Calculator is designed to be responsive for optimal viewing on different devices.</p>
+    </div>
+</body>
+</html>
+
+
+              
